@@ -15,9 +15,9 @@ importingFile = Importing…
 verifyingFile = Verifying…
 encryptingFile = Encrypting…
 decryptingFile = Decrypting…
-notifyUploadEncryptDone = Your file is encrypted and ready to send.
+notifyUploadEncryptDone = Your file is encrypted and ready to share.
 uploadingPageMessage = Once your file uploads you will be able to set expiry options.
-uploadingPageCancel = Cancel
+uploadingPageCancelShort = Cancel
 uploadCancelNotification = Your upload was cancelled.
 downloadCancel = Cancel download
 uploadingPageLargeFileMessage = This file is large and may take a while to upload. Sit tight!
@@ -51,7 +51,7 @@ fileCount = { $num ->
     [one] 1 file
    *[other] { $num } files
 }
-totalSize = Total size: { $size }
+totalSizeUpdate = Total size: { $size }
 copyUrlFormLabel = Copy the link to share your file:
 copyUrlFormButtonText = Copy link
 copiedUrl = Copied!
@@ -71,7 +71,6 @@ unlockInputLabel = Enter Password
 unlockInputPlaceholder = Password
 unlockButtonLabel = Unlock
 downloadFilesTitle = Download Files
-downloadFileText = {$name} was encrypted with Firefox Send, and will expire after { $timeSpan } or { $downloadCount }.
 # Firefox Send is a brand name and should not be localized.
 downloadMessage = Your friend is sending you a file with Firefox Send, a service that allows you to share files with a safe, private, and encrypted link that automatically expires to ensure your stuff does not remain online forever.
 # Text and title used on the download link/button (indicates an action).
@@ -162,7 +161,7 @@ signInLearnMore = Learn more!
 downloadProgressButton = Downloading... { $progress }
 downloadMessage2 = Firefox Send lets you share files with a safe, private, and encrypted link that automatically expires to ensure your stuff does not remain online forever.
 signInEmailEnter = Enter your Email
-emailEntryPlaceholder = Enter your email
+emailEntryPlaceholderUpdate = Enter your email
 signInSizeBump = Sign in to send up to {$size}
 signInContinueMessage = to continue to Firefox Send
 signInContinueButton = Continue
