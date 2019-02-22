@@ -9,15 +9,16 @@ module.exports = function(trigger) {
     let submitting = false;
     return html`
     <send-signup-dialog class="flex flex-col p-4">
-      <h2 class="font-bold">${state.translate('accountBenefitTitle')}</h3>
-      <ul class="my-2 leading-normal list-reset text-lg mb-8 mt-4">
-        <li>${state.translate('accountBenefitLargeFiles', {
-          size: bytes(LIMITS.MAX_FILE_SIZE)
-        })}</li>
-        <li>${state.translate('accountBenefitExpiry')}</li>
-        <li>${state.translate('accountBenefitExpiryTwo')}</li>
-        <li>${state.translate('accountBenefitSync')}</li>
-      </ul>
+      <p class="p-8">
+        ${state.translate('accountBenefitTitle')}
+        <ul class="my-2 leading-normal">
+          <li>${state.translate('accountBenefitLargeFiles', {
+            size: bytes(LIMITS.MAX_FILE_SIZE)
+          })}</li>
+          <li>${state.translate('accountBenefitExpiry')}</li>
+          <li>${state.translate('accountBenefitSync')}</li>
+        </ul>
+      </p>
       <form
         onsubmit=${submitEmail}
         data-no-csrf>
@@ -25,7 +26,7 @@ module.exports = function(trigger) {
           id="email-input"
           type="text"
           class="${hidden} border rounded-lg w-full px-2 py-1 h-12 mb-4 text-lg text-grey-darker leading-loose"
-          placeholder=${state.translate('emailEntryPlaceholderUpdate')} />
+          placeholder=${state.translate('emailEntryPlaceholder')} />
         <input
           class="btn rounded-lg w-full flex flex-no-shrink items-center justify-center"
           value="${state.translate('signInMenuOption')}"

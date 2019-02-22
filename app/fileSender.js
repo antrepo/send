@@ -17,9 +17,7 @@ export default class FileSender extends Nanobus {
   }
 
   get progressIndefinite() {
-    return (
-      ['fileSizeProgress', 'notifyUploadEncryptDone'].indexOf(this.msg) === -1
-    );
+    return ['fileSizeProgress', 'notifyUploadDone'].indexOf(this.msg) === -1;
   }
 
   get sizes() {
@@ -77,7 +75,7 @@ export default class FileSender extends Nanobus {
     try {
       const result = await this.uploadRequest.result;
       const time = Date.now() - start;
-      this.msg = 'notifyUploadEncryptDone';
+      this.msg = 'notifyUploadDone';
       this.uploadRequest = null;
       this.progress = [1, 1];
       const secretKey = arrayToB64(this.keychain.rawSecret);

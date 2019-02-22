@@ -1,4 +1,4 @@
-/* global Android LIMITS */
+/* global Android */
 
 const html = require('choo/html');
 const raw = require('choo/html/raw');
@@ -266,8 +266,8 @@ module.exports.wip = function(state, emit) {
           onchange="${add}"
         />
         <div
-          for="file-upload"
           class="flex flex-row items-center justify-between w-full p-2"
+          title="${state.translate('addFilesButton')}"
         >
           <label
             for="file-upload"
@@ -278,9 +278,7 @@ module.exports.wip = function(state, emit) {
             ${state.translate('addFilesButton')}
           </label>
           <div class="font-normal text-sm text-grey-darker">
-            ${state.translate('totalSize', {
-              size: bytes(state.archive.size)
-            })}
+            ${state.translate('totalSize', { size: bytes(state.archive.size) })}
           </div>
         </div>
       </div>
@@ -372,8 +370,8 @@ module.exports.uploading = function(state, emit) {
     <button
       class="text-blue-dark hover:text-blue-darker focus:text-blue-darker self-end font-medium"
       onclick=${cancel}
-      title="${state.translate('uploadingPageCancelShort')}">
-      ${state.translate('uploadingPageCancelShort')}
+      title="${state.translate('uploadingPageCancel')}">
+      ${state.translate('uploadingPageCancel')}
     </button>
   </send-upload-area>`;
 
@@ -385,15 +383,6 @@ module.exports.uploading = function(state, emit) {
 };
 
 module.exports.empty = function(state, emit) {
-  const upsell = state.user.loggedIn
-    ? ''
-    : html`
-        <p class="center font-medium text-xs text-grey-dark mt-4 mb-2">
-          ${state.translate('signInSizeBump', {
-            size: bytes(LIMITS.MAX_FILE_SIZE, 0)
-          })}
-        </p>
-      `;
   return html`
     <send-upload-area
       class="flex flex-col items-center justify-center border-2 border-dashed border-grey rounded px-6 py-16 h-full w-full"
@@ -409,8 +398,8 @@ module.exports.empty = function(state, emit) {
       >
         ${state.translate('uploadDropDragMessage')}
       </div>
-      <div class="pb-6 text-center text-base">
-        ${state.translate('uploadDropButtonMessage')}
+      <div class="text-center text-base italic">
+        ${state.translate('uploadDropClickMessage')}
       </div>
       <input
         id="file-upload"
@@ -426,15 +415,10 @@ module.exports.empty = function(state, emit) {
         for="file-upload"
         role="button"
         class="btn rounded-lg flex items-center mt-4"
-        title="${state.translate('addFilesButtonWithSize', {
-          size: bytes(state.user.maxSize, 0)
-        })}"
+        title="${state.translate('addFilesButton')}"
       >
-        ${state.translate('addFilesButtonWithSize', {
-          size: bytes(state.user.maxSize, 0)
-        })}
+        ${state.translate('addFilesButton')}
       </label>
-      ${upsell}
     </send-upload-area>
   `;
 
